@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acadêmico Fácil - Fluxo</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px;
+            overflow-x: auto; /* Permite rolar para o lado se a tela for pequena */
+        }
+
+        /* Container do Fluxo Horizontal */
+        .fluxo-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Setas de Conexão */
+        .seta-fluxo {
+            font-size: 32px;
+            color: #0056b3;
+            font-weight: bold;
+            user-select: none;
+        }
+
+        /* Estrutura Base das Telas */
+        .card-container {
+            background-color: #ffffff;
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 320px; /* Largura levemente ajustada para caberem lado a lado */
+            border-top: 8px solid #0056b3; /* Topo em Azul */
+            flex-shrink: 0; /* Impede que os cards amassem em telas menores */
+        }
+
+        .card-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .card-header h1 {
+            color: #0056b3;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .card-header h1 span {
+            color: #f1c40f;
+        }
+
+        .card-header h2 {
+            color: #0056b3;
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Componentes Comuns */
+        .btn-amarelo {
+            width: 100%;
+            padding: 12px;
+            background-color: #f1c40f;
+            border: none;
+            border-radius: 6px;
+            color: #0056b3;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-amarelo:hover {
+            background-color: #d4ac0d;
+        }
+
+        /* --- TELA 1: LOGIN --- */
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333333;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #dddddd;
+            border-radius: 6px;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus {
+            border-color: #0056b3;
+        }
+
+        /* --- TELA 2: DISCIPLINAS --- */
+        .disciplina-box {
+            border: 2px solid #0056b3;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #fcfcfc;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .disciplina-box:last-child {
+            margin-bottom: 0;
+        }
+
+        .disciplina-nome {
+            color: #333333;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .btn-notas {
+            padding: 8px;
+            font-size: 13px;
+        }
+
+        /* --- TELA 3: NOTAS --- */
+        .materia-titulo {
+            color: #0056b3;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px dashed #f1c40f;
+            padding-bottom: 10px;
+        }
+
+        .nota-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+            color: #444444;
+            margin-bottom: 12px;
+        }
+
+        .media-box {
+            margin-top: 20px;
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #e6f0fa;
+            border-left: 5px solid #0056b3;
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            font-weight: bold;
+            color: #0056b3;
+        }
+
+        .btn-voltar {
+            background-color: #dddddd;
+            color: #333333;
+        }
+
+        .btn-voltar:hover {
+            background-color: #cccccc;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="fluxo-container">
+
+        <!-- TELA 1: LOGIN -->
+        <div class="card-container">
+            <div class="card-header">
+                <h1>Acadêmico <span>Fácil</span></h1>
+            </div>
+
+            <form onsubmit="return false;">
+                <div class="input-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="inserir email aqui" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" placeholder="inserir senha" required>
+                </div>
+
+                <button type="submit" class="btn-amarelo">Entrar</button>
+            </form>
+        </div>
+
+        <!-- SETA 1 -->
+        <div class="seta-fluxo">➔</div>
+
+        <!-- TELA 2: MINHAS DISCIPLINAS -->
+        <div class="card-container">
+            <div class="card-header">
+                <h2>Minhas Disciplinas</h2>
+            </div>
+
+            <div class="disciplina-box">
+                <div class="disciplina-nome">AEDs I</div>
+                <button class="btn-amarelo btn-notas">Ver Notas</button>
+            </div>
+
+            <div class="disciplina-box">
+                <div class="disciplina-nome">Engenharia de Software</div>
+                <button class="btn-amarelo btn-notas">Ver Notas</button>
+            </div>
+
+            <div class="disciplina-box">
+                <div class="disciplina-nome">Lógica Digital</div>
+                <button class="btn-amarelo btn-notas">Ver Notas</button>
+            </div>
+        </div>
+
+        <!-- SETA 2 -->
+        <div class="seta-fluxo">➔</div>
+
+        <!-- TELA 3: MINHAS NOTAS -->
+        <div class="card-container">
+            <div class="card-header">
+                <h2>Minhas Notas</h2>
+            </div>
+
+            <div class="materia-titulo">AEDs I</div>
+
+            <div class="nota-item">
+                <span>Prova 1:</span>
+                <strong>8,0</strong>
+            </div>
+
+            <div class="nota-item">
+                <span>Prova 2:</span>
+                <strong>7,5</strong>
+            </div>
+
+            <div class="media-box">
+                <span>Média:</span>
+                <span>7,75</span>
+            </div>
+
+            <button class="btn-amarelo btn-voltar">Voltar</button>
+        </div>
+
+    </div>
+
+</body>
+</html>
